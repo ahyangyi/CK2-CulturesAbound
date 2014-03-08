@@ -89,7 +89,7 @@ try:
             ret_out.write ("RETTYPE_COMMON_NEW{0} = \n".format(common_ret_count))
             write_localized_unit_name("RETTYPE_COMMON_NEW{0}".format(culture_ret_count))
         else:
-            ret_out.write ("RETTYPE_CUL_NEWN_{0} = \n".format(culture_name.upper()))
+            ret_out.write ("RETTYPE_CUL_NEW_{0} = \n".format(culture_name.upper()))
             write_localized_unit_name("RETTYPE_CUL_NEW_{0}".format(culture_name.upper()))
 
         ret_out.write("{\n")
