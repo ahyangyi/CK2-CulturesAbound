@@ -153,7 +153,7 @@ try:
         if culture_name != None:
             write_localized_unit_name("ca_culture_{0}_new_1_desc".format(culture_name))
             for i in range(1, 5):
-                loc_out.write ("ca_culture_{0}_new_{1};{2} barracks;Caserne de {2};{2} Kaserne;;Cuarteles {2};;;;;;;;;x\n".format(culture_name, i, culture_name_desc))
+                loc_out.write ("ca_culture_{0}_new_{1};{2} Barracks;Caserne de {2};{2} Kaserne;;Cuarteles {2};;;;;;;;;x\n".format(culture_name, i, culture_name_desc))
 
                 bld_out.write ("    ca_culture_{0}_new_{1} = {{\n".format(culture_name, i))
                 bld_out.write ("        desc = ca_culture_{0}_new_1_desc\n".format(culture_name))
