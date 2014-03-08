@@ -47,8 +47,9 @@ try:
     if not os.path.exists(os.path.join(path, "localisation/")):
             os.makedirs(os.path.join(path, "localisation/"))
 
-    ret_out = open(os.path.join(path, "common/retinue_subunits/00_NewCultureRetinues.txt"), "w")
-    bld_out = open(os.path.join(path, "common/buildings/00_NewCultures.txt"), "w")
+    # Named 01 so we are sure they are loaded after the system ones
+    ret_out = open(os.path.join(path, "common/retinue_subunits/01_NewCultureRetinues.txt"), "w")
+    bld_out = open(os.path.join(path, "common/buildings/01_NewCultures.txt"), "w")
     loc_out = open(os.path.join(path, "localisation/NewCultureBuildings.csv"), "w")
     bld_out.write ("castle = {\n")
 
