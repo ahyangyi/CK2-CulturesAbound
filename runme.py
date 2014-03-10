@@ -159,7 +159,7 @@ try:
                 bld_out.write ("        desc = ca_culture_{0}_new_1_desc\n".format(culture_name))
                 bld_out.write ("        potential = {\n")
                 bld_out.write ("            FROM = {\n")
-                bld_out.write ("                culture = {0}_cul {{\n".format(culture_name))
+                bld_out.write ("                culture = {0}_cul\n".format(culture_name))
                 bld_out.write ("            }\n")
                 bld_out.write ("        }\n")
                 bld_out.write ("        trigger = {{ TECH_CASTLE_CONSTRUCTION = {0} }}\n".format(i - 1))
