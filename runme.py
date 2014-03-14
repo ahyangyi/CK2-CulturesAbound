@@ -29,7 +29,7 @@ try:
         fi.close()
         
         # Parse the file for only cultural groups & cultures
-        m=re.findall("[a-z_]*_grp = {|[a-z_]*_cul = {", content)
+        m=re.findall("[a-z_-]*_grp = {|[a-z_-]*_cul = {", content)
 
         cur_grp = "default"
 
@@ -48,9 +48,9 @@ try:
             os.makedirs(os.path.join(path, "localisation/"))
 
     # Named 01 so we are sure they are loaded after the system ones
-    ret_out = open(os.path.join(path, "common/retinue_subunits/01_NewCultureRetinues.txt"), "w")
-    bld_out = open(os.path.join(path, "common/buildings/01_NewCultures.txt"), "w")
-    loc_out = open(os.path.join(path, "localisation/NewCultureBuildings.csv"), "w")
+    ret_out = open(os.path.join(path, "common/retinue_subunits/caNewCultureRetinues.txt"), "w")
+    bld_out = open(os.path.join(path, "common/buildings/caNewCultures.txt"), "w")
+    loc_out = open(os.path.join(path, "localisation/caNewCultureBuildings.csv"), "w")
     bld_out.write ("castle = {\n")
 
     troop_types = ["light_infantry", "heavy_infantry", "pikemen", "light_cavalry",
@@ -127,12 +127,20 @@ try:
                 amount1 = random.randint(0, 2) * 50 + 200
                 amount2 = 500 - amount1
             
-        ret_out.write("    first_type = {0}\n".format(t1))
-        ret_out.write("    first_amount = {0}\n".format(amount1))
+        # Special case for HC retinues; change to 300 HC 200 LC for balance reasons
 
-        if t2 != -1:
-            ret_out.write("    second_type = {0}\n".format(t2))
-            ret_out.write("    second_amount = {0}\n".format(amount2))
+        if t2 == -1 and t1 == 4:
+            ret_out.write("    first_type = {0}\n".format(t1))
+            ret_out.write("    first_amount = {0}\n".format(300))
+            ret_out.write("    second_type = {0}\n".format(3))
+            ret_out.write("    second_amount = {0}\n".format(200))
+        else:
+            ret_out.write("    first_type = {0}\n".format(t1))
+            ret_out.write("    first_amount = {0}\n".format(amount1))
+
+            if t2 != -1:
+                ret_out.write("    second_type = {0}\n".format(t2))
+                ret_out.write("    second_amount = {0}\n".format(amount2))
 
         if culture_name != None:
             ret_out.write("    potential = {\n")
